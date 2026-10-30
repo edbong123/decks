@@ -1,0 +1,259 @@
+<title>Community Aviation Partner Overview</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Jost:wght@400;500&display=swap">
+<style>
+/* Layout: fixed header, full-height opener, then a three-column scroll story (section rail, copy, sticky summary panel). Dark, hairline, mono labels. */
+:root{--bg:#0a0a0a;--ink:#f2f1ee;--body:#b9b8b3;--muted:#8f8f8b;--dim:#7d7d79;--line:rgba(242,241,238,.16);--line2:rgba(242,241,238,.45);--steel:#9db4c8;--amber:#d99a66;--tan:#c9b79c;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--sans:'Instrument Sans',Helvetica,Arial,sans-serif;--disp:'Jost','Instrument Sans',Helvetica,sans-serif;--gutter:clamp(20px,4vw,56px);color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:1px solid var(--ink);outline-offset:3px}
+
+.top{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:16px;padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px));background:rgba(10,10,10,.92);border-bottom:1px solid var(--line)}
+.toplock{display:block;height:20px;width:auto;max-width:60vw}
+.mark{font-family:var(--disp);font-weight:500;font-size:13px;letter-spacing:.26em;text-transform:uppercase;white-space:nowrap}
+.pill,.cta,.mailcopy{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;border:1px solid var(--line2);border-radius:999px;padding:10px 16px;line-height:1;background:none;color:var(--ink);cursor:pointer}
+.pill:hover,.cta:hover,.mailcopy:hover{border-color:var(--ink)}
+.cta,.mailcopy{padding:15px 22px;font-size:12px}
+.mailcopy .mc-tip{color:var(--muted);margin-left:8px}
+.mailcopy.copied .mc-tip{color:var(--amber)}
+.cta-arrow{display:inline-block;margin-left:6px;transition:transform .2s}
+.cta:hover .cta-arrow{transform:translateX(4px)}
+
+.opener{position:relative;height:100svh;min-height:560px;display:grid;place-items:center;text-align:center;border-bottom:1px solid var(--line);padding:90px max(var(--gutter),env(safe-area-inset-left,0px)) 90px}
+.opener .in{animation:fade 1.2s ease both;max-width:1100px}
+@keyframes fade{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:none}}
+.eyeopen{display:block;margin-bottom:clamp(18px,2.6vh,34px);font-family:var(--mono);font-size:clamp(12px,1.2vw,16px);letter-spacing:.38em;text-transform:uppercase;color:var(--muted)}
+.big{margin:0 0 clamp(26px,4vh,48px);font-family:var(--disp);font-size:clamp(40px,6.6vw,108px);line-height:.98;letter-spacing:-.02em;font-weight:500;text-wrap:balance}
+.big .turn{color:var(--tan)}
+.what{max-width:60ch;margin:0 auto;font-size:clamp(17px,1.5vw,21px);color:var(--body)}
+.sub{display:block;margin-top:22px;font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.scroll{position:absolute;bottom:clamp(28px,5vh,56px);left:0;right:0;font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+.page{display:grid;grid-template-columns:170px minmax(0,1fr) 400px;gap:48px;max-width:1360px;margin:0 auto;padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
+.rail{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center}
+.rail ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--line)}
+.rail .home{margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.rail button{all:unset;box-sizing:border-box;cursor:pointer;display:block;padding:9px 0 9px 16px;margin-left:-1px;border-left:1px solid transparent;font-family:var(--sans);font-size:16px;color:var(--dim);line-height:1.4}
+.rail button:hover{color:var(--ink)}
+.rail button[aria-current="true"]{color:var(--ink);border-left-color:var(--ink)}
+.rail button:focus-visible{outline:1px solid var(--ink)}
+
+.story{max-width:660px;min-width:0}
+.step{min-height:96vh;display:flex;flex-direction:column;justify-content:center;padding:16vh 0}
+h2{font-family:var(--sans);font-weight:500;font-size:clamp(32px,3.8vw,54px);line-height:1.06;letter-spacing:-.025em;margin:0 0 28px;text-wrap:balance}
+p{margin:0 0 18px;max-width:60ch;color:var(--body)}
+p b{color:var(--ink);font-weight:500}
+.lede{font-size:clamp(20px,1.7vw,24px);line-height:1.35;letter-spacing:-.01em;color:var(--ink)}
+.strong{color:var(--ink)}
+.src{font-size:12.5px;line-height:1.5;color:var(--dim);margin-top:16px}
+.people{display:grid;margin:14px 0 26px}
+.person{display:grid;grid-template-columns:88px 1fr;column-gap:20px;align-items:start;padding:16px 0}
+.ph{grid-row:1/span 2;width:88px;height:88px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--mono);font-size:14px;letter-spacing:.14em;color:var(--muted)}
+.person h3{font-weight:500;font-size:21px;letter-spacing:-.01em;margin:0 0 6px}
+.person p{margin:0;color:var(--muted);font-size:16px}
+.contact{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+.addr{font-family:var(--mono);font-size:14px;color:var(--muted);margin:18px 0 0}
+footer{padding:28px 0 90px;border-top:1px solid var(--line);font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+
+.panelwrap{min-width:0}
+.panel{position:sticky;top:76px;height:calc(100vh - 100px);max-height:800px;border-left:1px solid var(--line);padding:6px 0 6px 36px;display:flex;flex-direction:column;justify-content:center;gap:22px;overflow:hidden;font-family:var(--sans)}
+.pbody{display:flex;flex-direction:column;gap:22px;transition:opacity .22s ease}
+.pbody.out{opacity:0}
+.caption{font-family:var(--disp);font-size:18px;letter-spacing:.02em;color:var(--tan);min-height:1.5em}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.stats.one{grid-template-columns:1fr;gap:18px}
+.stat{min-width:0}
+.stat .v{font-size:34px;font-weight:500;letter-spacing:-.03em;line-height:1.1}
+.stats.one .stat .v{font-size:24px;letter-spacing:-.02em;margin-bottom:6px}
+.stats.single .stat .v{font-size:56px}
+.stat .l{font-size:16px;line-height:1.4;color:var(--muted);margin-top:8px}
+.stats.single .stat .l{max-width:28ch}
+.stat.hot .v{color:var(--amber)}
+.three{display:flex;flex-direction:column;gap:18px}
+.three b{display:block;font-size:24px;font-weight:500;letter-spacing:-.02em;line-height:1.1;margin-bottom:8px}
+.three span{font-size:16px;line-height:1.4;color:var(--muted);display:block}
+
+@media (max-width:1080px){.page{grid-template-columns:minmax(0,1fr) 360px;gap:32px}.rail{display:none}}
+@media (max-width:820px){
+body{font-size:17px;padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+.page{display:block}
+.panelwrap{position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--bg);border-top:1px solid var(--line);padding:14px max(20px,env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px))}
+.panel{position:static;height:auto;max-height:none;border:0;padding:0;gap:0}
+.stats,.three{display:none}
+.caption{font-size:16px;min-height:0}
+.step{min-height:80vh}
+.person{grid-template-columns:64px 1fr;column-gap:14px}
+.ph{width:64px;height:64px;font-size:12px}
+.pill{font-size:9.5px;padding:8px 12px}
+.toplock{height:16px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.opener .in{animation:none}.pbody,.cta-arrow{transition:none}}
+</style>
+
+<header class="top">
+<img class="toplock" alt="Community Aviation" src="data:image/webp;base64,UklGRqAVAABXRUJQVlA4WAoAAAAwAAAAZwEALQAASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADZBTFBI4gkAAAHwhm3bIre1rd1V1V1vt2SSZWZmZhjseDA7NTDMzMzMzMwcw2BmDjNHckhWSCU0SJb6+lFvvQ0ZY87+GREToP+OdbcGqor/qOXfqobn/wHXV8MO2wZ8q/rV702A3v5Vr5P7SL6tKveY97D/qbplziH9rGqWt3gLjvOqWDVX4drlVa/Wxjg3qFrd7wGK/Gm16sdtFPvj6lT97wsU29evKnVIB8W3qwo99HlK2VCC4KBnm5qbntrbSxt2W+OWLe/8+ateyreiZGCbGSVHS2GU/HLKqiiZl0ZGUbTSFkXROl9aFUVRZOsXRdE3JH0piqJxWhM5L901iqIltnFRFEUTnQZFUfRZi/e9KIpWpMyKomidtyKKoiVp34miyDYgcp+sL0VRNC2l9rI3m5rffXxPP2WXKIrWBZb+URStrLBjdlLSK4q7ugd797mWAc0F7Nv3sLWQHG37G8nvSfUkC/WWcBvJ8dLXgfU2oCcvbQTYaJkGfCDpFWB3PY5zXzvQ6lneBFryThuAviEJ/RZoSnkf+E3wEHB7yjqANZbZuB+mV4ATLdln+rB3n2d7AuBgyzTgkYqqiynxjGLyDbj+XNKaAq5/9VxutozEui6Nr1qWYZ1heyRwGJhSqHPwbHsWw0KAmxL7AIXxNS4DSB5kmQmwzBICfDebuCXlb4m2khxkOT4xrRvXxtChMDQxAXiogjJnUupeFRk8SbK7axvQOdHXjF6AQmd7T4IHXApBYs/iXvQSN5SPtxNTy5L/G9A9WMo0Axuzct3X0hQkwh7gAsuXgI+MnCaQLPQvz7CtJLvadyR4wk/jAU/SuMqa0U7JtxezP8C2EwNpVVPH5Jz8NwCeGSc/e2k3wAQHRiX+Xhx1kkx3BbCbpNFFDKuvrx+WmF5fX18f5ncCP5UuBLZ7GRe/28KKhC4B3vITDcDtRVxrYX0iqK+vrz8c+Gd9fX19zuF3AO/Mk+8f3gnwTQcWVFq/qwuU/rEi8tuB7bODfCbI180KpV0BfumFJmPMV3qAd2zdvfBzSSOBLpcu4PuS5gLbytaSKy4jKZMYLkm+vgEUlgzdBsyvletE4Dlgk2UywOwE0DcncMq1QutW6PSVug/wN0/JlPkAL/hhLsjmZncB3b5DU7ay1nxAOXcvYj7AYaEnSZ7xpF8CfZ5RMrwf6PUtW54FJEXAPS4bWqDJk66HrvXleRe4o7iki5R9Evj3fcDGUM5PQ9+cVmBoIngLOE7SCuDlUE67AUf+HtirCN/tnER9TsnMSQB1thjYRxpbMYPvpbz5Io4E+ob7cmwEHqqVfVoBmGtpPhOYJf0bXjnFZf0mIK+wGx6+rzxTgZ5ZGl4mjSlg3dov4xQAr4TXAYcmdADwmic9DZxknLwngHFzCvB6Of4EPFsje103sJtt3wIUcpXzvQ8ps4q8C9hs5Oh1AV9Weiewp6VtaDf8R0OB485z+fVXgMM0Cfjy+vIMuwJ4TEPL5R1h+3JezucDZ5iVQEc2MaoATJR6YFt/z2ke8EKtdkDf1DI0Amf7KXoTuMw27RfAryul7teUu7OYnwIvBS5+N/Bph1ZgH1v2JejR16Fv4vlOYTN06SZozperZgewV9lU82riZznPbTt0D/L8t4A5Cf0O2Efzgcdycroe+H6ge4FHyrAZOM5Lewm42TZjTCcwdXRFHNhB2W8u5hKgNXTR+8BRaZlu4DMpBwJrnoZ/hOc6ZR4AzE64PSzTCK0FPp5YNi1PjMjI+dPAC0a6BHjM8m3gRf0e2CXrNKgbCqM81QHt2dI9Azzi8CFwhG2Wdzbw4agKqHmJCpxfzNcBFjs9BrSl7QYUai0dYWY7vA0cmHX6XWYecAewIHD6SQnGKvM4cFf5Rifq5P4a0NHY0PABgEnUdgHD26A9I6cfAr2NDQ0NAIeX7k6g26QsA5iSovx7wKXlO6mHSjTFjEn82ukSgCkpjcCOGktfTq+Q3DFQ17r8O1ATyYZQv7EtBBq9RBbYVmubIE0HCuUblci71fbifHpCtwKHF+DhvJPfhPMLpfsBwK4pf0rU2hZJKwpYy1LXTGX6xXj/BrjassdmXxrcA/QOS3j/ADgzbylk9TXLr0Nd5yTdZbnC6Le2YQDfSTwNvJp18M/FWnH34F6wrMZa6O85TafIxSUzbUBhoeU2gJ/2c/CfKVvmPCr0KRU9pw9g50Vrj22Dd2qkm0g+/8Ndbu4D6PGUpp2J72aLGlkAeod4aX4rwN3L174DcIGxzZI0oPMT4X0MbLg7eX8BmJXQZktXTk6PAi/fbe0G7iuZDiLZvO9nL+gB6B3k2RZKqukt06wtVOpBxQX79+H6mi/zdCK9Z3ityzNAS1ZF6QPg1VBpWl3AsTnj2eZI0rpPxI+BHj+wPgtstpxvOcBtAMDawHog0N2/ZNkHEul9n6+RbZEknVaW2sup3PHFKdx3q8P78zJS+FuX96eESjHSfGCDkW5wecyTLgGONtLvUvzj+tLisTk5Zf72SXgG+E2NrIcDfbnEuN6EL6e9gQ9ysg4GOKRkMjf1OrStzXopn02YjtJ5n/mICh5QApkx6zss8Y3GeJLMl57stbx3SZhVsjGOW2okxXG8NJAuj+P4m9Lg1jj+fUaqbYk/CCVtjON4miSZzz3fl9i2PhdK0r1xHC9OaN7HcRy/7kmPxXH8I1trHMfDHEa2xnHsNL4ljuMRni3bFMfxhQn9OY7jJ2ttt8dxfJXfFMfxZVmb9+c4jh/zJO0Wx/GvbI/HcXxEQmbRX3osH90+MOtL0p/iOF6a0MI4juPbS1FzB2Xd+dzNLU6tfimUDcNPHXzCgcv8TE7WXHbgN44+frfpXsbIaiSFknJSVpKRlJGUk5SV5Et5SaGkgQlls2N/cPxRa7KBUXo/i5+RJE/KSTIW1ajIvIoNJBmlZiT5llCSfJvdSAoCm0JJysge2GokBRaF2dwXjzh+nwV+xnhK5pXueyrtuk5K3/vsFV8bJC3qcblTJc6GuYyXDX2lhyabzYShJ3vGGONLyhqT8I0xRlJojPElGWMCSRljjLHIC0M/CMNAVt8YYyzKGmOMpMAYE9qMMSZwMcYY38kYYzJpWWOMsQTGGCO7b4wxMsaYUKmeMcYECWOMkTUwxoQ2KQxNNghDX/bAGJOxyCSLGvQLSl149ry1dbLvWXD4Sqmqnwd1UNLCC6esrpPzLQ4TqzPD/1Og+MLLx80fpOLfSCnkqzLHbqPoxiMn9FNp8z22x1WFHfY2Rb599JBQZRxtO7n64p2Ga++WY/up7Gssn666jOnAXuh886SBqswLE6OrLLnLSBY+furEYapc/y8Q+9WVlW1QaP7LCWNU4QPe4VFVUwfdUdjyy6Mn6pM4s/PAasqqGw6ZpE/sd5ZWUwBWUDggyAkAAHA3AJ0BKmgBLgA+bSySRaQioZVaH9BABsSxgGpFIDxA0zvFp7N95OGjNt198s3wH9TPiK/4bqGeYf9iP2K96T/Aepj0AP5t1BHoAfrd6Y37gfAx+5X7Ze0T/9s5j/rH4e/rh5P/2r8euv38+ezGUEfJfkh62/5TxJ9Rfko/wHgv/qvbHAA/E/5n/g/yv83bUywJ/zb/YeUz/gPGZ+qf2v/Ve4H/Ff63/pvy3/3f0tfy/+u/vn7of5f2p/Q3+y/v/99/7f9y+wT+Nfzn/O/3n94f9F/////40P2g9iH9S11H+U/dq94oMLkpxr2IQujlFjgaY36/srXLZc/JryIdr/IcDjG+rwrNFh89JNTDvL9xhL+eklxjhtRPjF/IOqnUHSEI0YRvSmZTGaiMxvaEJXqSmqJSKTvTD5um20mwj3IB6L9yrBIy3iIhlUqqXM2c4fQATc6uNkXXgGwHM3N2bE2Ub7C+2IhABgqm3gx1M5lDk+MwM5f86SayzrBRI7ICgkvgbZmbytQQEvKwZh5eGCnx30OqpvINK9LUYmYKAHrGzRKbY3xm0u6inOyZuHuy+6Y6KkWnVKwW1oyzMwdu6xDij8EAAP79Nmoe8HVDnNPmbRfNOvnAeA2gTFIxJuPRl2MjiF8DgqNkH7koAotRb8VPOKfr5xOX7aGXw53FZvb4/QLrXsN9ObXphEmp3MclMw9/Dnibv9DkKvBlpihOBjqjA5zgXgTEiN/2MZ/4nOqubL/y03+K9D26xic4TsCmhTjGlbgZDCAcHasv///cAW7ZIQAA+fUGMvqACmOmJy4yYsNXo2wrHyaitDuW7NX+OMWy9+e1QfMtiQxHAco/4buWRO1NPpp6LPKESITuIOTUC7HvOTxBzcID0NvDJxCsoYl0tc9DHic8rORf4gZ2JxVvrgJ+4faHZzDkrRGkNAe6o0BwUMa2QnvwXc4AhQuEDKyjLMdHSE2F13AF9WRH+wZlDD4VqEy3hslR0uwwkBQxeELpDfBRZLRDspl1GsIvYczzJ0vymPu/pHj7yPQZc80sOcNHuApN44SFIfqDeBNYyfwUB3cTDNO96le+2FqDBOhU/K9IDcw+NshoeK0xr8RyPG3+3z8UiFELSMfWHcneSrjcF397JpHU9kQbL0rhpBZBlcXVHL/gVp1qCOofhhwuxWj3z5LmGJ2EL/n4FnERTPu5eYIOoFXOXXuBYnwRuLDCp9Xu5O2uBi0On5iTZH+9Lrq7G1Ffu3bBJUO/puNTi5GmKEXLQmjHtJyGaqyd8bHE3aNWCjd+bTIglTA5Z4UgSfeD0Wa79IlNYhAJhlHmzFp/itl1FdCvn/pNX0Fs8rDjPjQwlaGHuhY7EtXEhvtacaiMO1fvmEUsLpSFZ4xKQOI8f/nLrIW88CBVM9Oq7PySCx2GMokR5RqyR6scWKbXrEj8rmOA4QRSQrC1XzNa2b6GI/ZFGEhB3VdNf15pUi+LdAl5urXoGFiOjHElec5RIrUwZkSDxawQSU3NyWT/CAFhLg/8Bipx4svbW7O0qmFNpQzxi8nhVk+GWZqSuRWJUkTGQvORuCU2zKuyLKUKBV5UaWBeozMlsZ5u2hlpIn80QN1MinG9SrX9xJJVHrLfmtHgsTUr4tHexFFs+7ZFw/9jliA/SBxy7rEZk3afd39WlHw47rmsbjz8+QY3AFGUUjr4qc2KDjqdpU6qNy+uugsVFg1PwEZQuN1FttOkYbAXTqz5LzpBdPiVeA+C+mL1zAIzzSc5k6tZPKev4e34DRMhB2oaDCnLZnBw86Pt356rOoqRl6lU6sUnS/jeMO/l8xdfFOk16wLcdUMVMJSZkeb0xrCH8J/Yo+21QqupROBEjAlCgKGIMXALBzJB4A8PMdvyMJHwKuBIsCpcbBmb4dbbdOJUKwzg4cn+GaTepD/EPCrJWzV3+pjS2UhNZaqI2OAAu/pN3TOHtG7fYGw9LvfsfLpsH8+Zk2Xrm2MAAkYP7Pkka3pTkeTEXVghEZiHUU57/Qb+x2O/VEVrsVZM4ItRMhZTQigzQeNUm9a21zvFB/z3tLRjZvyPzwzB5+FavFrigGComrh/zTPTZTPCRVxFizz+MS9c7HCdiCMSbY4OPxHHuKZ3/JtiY7wJt5HKCi4yIkQ67ZySsPSaRw/DZenVV62hbAAHuRMkrc1wYjQZN2MgnkhU1VeF/sUrp/C/f/aL+lw5cAaDRrcd6lRlPv8nJH18kRokQ3/PFh/MqkdHYCq0QF0hzxgf6NXmCeydVZjjy6xY5JGFwJbYSlaOK2qtvXGPnudCfsfy59yv4Lfe0A2tiHHtym0GfIh/SW2jtOy0e+oGPXsTjDZyk7/4A5Dg/Ku8bSfuMvFTpd07lE2BN9tpORoQT9s/qlUlksKuN8FGC4rgkr/dfTaID7ZMn1JNFJMs/lxYIP30lC7R8GmefmxB73XSPu7JCWx4oLZ7396kDv+94FBRvWBF/sRKaBr+BgM//isyfCN/Oe8MWXN1tSdsUGGaeE7ZUQ/QZU+JnEysrVjHIsHBL/F1n0abPuYY42CtyVfS1BTMO/EW8VdkprFdkVOH31fIYAL6W45hdW1/qSllsycZa9HsC8p0OSTpeNHtXtnXTEP0p1Ru2C+UZoc0nnnprE7B5hNE783ABtFW+j+ziVgoZVDIdX4CM97wc4eBDfEeau+9Gl+OmIpaVHEI0/7cuGzrtaAFFR5tlMP+BMQCzz18++H+4RfdryvjLBrFsDZYHEaJ40GA0evJpXZJFT5hQVmnl3f4Rjpi1Lj8WcHBgP3foJgc7ikG/c1ftpu9YW1jwPVkgVGfKRL3uhJ0lHCDPesB7gSLP4VtjxvCtIPM+Yd8NpFcwO5gl0/1dWPm9rxQ/99gCpUHiLr2XQnuyhYz/ocloZirheTeJ9TEhAAwK7w57IShEhk/z6auJGH862dTmehEvpIiEOWh2v0J/40jMSU7JgNv12BqCawqG43mHiFwlM0p9Xsn5Rl0YQi9qhorqLQOgkC3pbh1PAyKSlBr4TQ5G4EOJQ2VLFB2sc5yeKihqt+C3UIMUA38NksHWRD971GDebd7eelmVsvHDLVO3S9QS822C0UuOUpGZ1v8hk7W3OJe3NEZq+lm5i//b6wgRUsEfLPgk5s+qBtMn9mdYN2vUz7wJkystGQx6Imel92Sc4Fo1Fv6GDdzzinm3l5dU/nbADVHPggaBrWGQXB3Zt9+0aVg+PC1jLmOZxCytMPR7j9T2fMdpssOCC9Psp+GhLAy8ptyBRZ5GCRiBxCSbMrrj3Zc/yJqR3eS9o0sqFOzqKs2yRraIEbwXXDv+WnJ7d0RiHm7NKJcx/KIAAAA">
+</header>
+
+<section class="opener" id="opener">
+<div class="in">
+<span class="eyeopen">Partner overview</span>
+<h1 class="big">Flight training hasn’t changed in fifty years.<br><span class="turn">Pilots have.</span></h1>
+<p class="what">Today’s students can learn from anywhere and in their own way. Flight training still moves with paper, weather and memory. We provide a pilot-centric platform that supports an aviator’s personal journey, with certification and ratings as milestones and airmanship as the true goal.</p>
+<span class="sub">We eliminate the friction in flight training.</span>
+</div>
+<a class="scroll" href="#s0">Scroll ↓</a>
+</section>
+
+<div class="page">
+<nav class="rail" aria-label="Sections"><ol id="rail"></ol></nav>
+
+<main class="story">
+<section class="step" id="s0" data-title="Problem">
+<h2>Friction and fragmentation</h2>
+<p class="lede">Most students who start flight training never earn a certificate; dropout runs as high as 80%. Cost is a factor, but the main reasons are the quality of instruction and customer&nbsp;service.</p>
+<p>Flight training is organized around FAA certification, so pilots learn rote tasks while judgment and airmanship get little attention. Knowledge, skill building and in-airplane training are rarely integrated. Costs climb as lessons are repeated and the airplane becomes the&nbsp;classroom.</p>
+<p>Providers feel it too. Every student who quits is lost revenue. Outdated software tracks resources, not student progress, and weather and cancellations leave airplanes and instructors idle, even when other ways to learn exist. When an instructor leaves or a student changes schools, the records stay behind.</p>
+<p class="src">Source: AOPA, The Flight Training Experience (2010).</p>
+</section>
+
+<section class="step" id="s1" data-title="Solution">
+<h2>Integration and continuity</h2>
+<p class="lede">One platform for flight training with three parts, learning, resource management and environmental factors, all built on our Learn-Do-Fly Training Standard and a Knowledge Library where every answer cites its&nbsp;source.</p>
+<p><b>Learning.</b> Every training encounter follows the Learn-Do-Fly framework: knowledge acquisition, skill building with the sim or visualization, then performing in the airplane. The pilot is in command of their own learning: their record remains with them, and each session builds on the last. The Knowledge Library breaks expert knowledge, regulations and each school’s own material into small, sourced pieces we call atoms, delivered as an audio briefing, a visual, a sim exercise or a kneeboard&nbsp;card.</p>
+<p><b>Resource management.</b> Aircraft, instructors, simulators, scheduling and billing are connected as one smart system, so instructors and administrators spend more time on each&nbsp;learner.</p>
+<p><b>Environmental factors.</b> Weather, TFRs and NOTAMs are presented ahead of each session, so training opportunities aren’t lost to surprises. Decisions stay with a&nbsp;human.</p>
+</section>
+
+<section class="step" id="s2" data-title="Partners">
+<h2>Better-trained pilots take more than one company</h2>
+<p class="lede">We work with partners across hardware, insurance and training, so the whole path from first lesson to checkride&nbsp;connects.</p>
+<p><b>Varjo</b> is now a Community Aviation partner. Learn-Do-Fly puts skill building on a simulator or with visualization before the airplane, and Varjo’s mixed reality headsets put the pilot inside that&nbsp;practice.</p>
+<p><b>Avemco</b>, the only direct writer of general aviation aircraft insurance in the US, sponsors our work and offers pilots up to 10% off their premiums for completing our&nbsp;training.</p>
+</section>
+
+<section class="step" id="s3" data-title="Why it matters">
+<h2>We all benefit from well-trained pilots</h2>
+<p class="lede">Most pilots, including airline captains, start at a local flight school. At some point, all of us depend on the quality of the training that pilots&nbsp;receive.</p>
+<p>Worldwide, airlines will need about 674,000 new pilots over the next 20 years, and every one of them starts with flight training. The same need exists abroad; Australia is our first international&nbsp;market.</p>
+<p>Instructing counts toward airline flight time only in the airplane, so students get rushed into the airplane, which is a terrible classroom. We break that cycle by keeping the method and the record with the pilot, not the&nbsp;instructor.</p>
+<p class="src">Source: Boeing, Pilot and Technician Outlook 2026–2045; 14 CFR 61.159.</p>
+</section>
+
+<section class="step" id="s4" data-title="Proof">
+<h2>Traction</h2>
+<p class="lede">The University of Maine at Augusta enrolled its incoming class into Loops. The Flight School in Georgia went live on Flight Ops in October, and AeroElite’s eight locations in the DC metro area follow in&nbsp;November.</p>
+<p>More than 300 people have pledged to the Learn-Do-Fly&nbsp;Standard.</p>
+<p class="strong">We proved the method before we built the platform: in a 2024 clinic survey, 64 percent of pilots rated it superior, against 28 percent for conventional&nbsp;instruction.</p>
+<p class="src">Source: Community Aviation clinic survey, 2024.</p>
+</section>
+
+<section class="step" id="s5" data-title="Team">
+<h2>The team</h2>
+<div class="people">
+<div class="person"><div class="ph" aria-hidden="true">BW</div><h3>Billy Winburn, Founder and CEO</h3><p>Instrument-rated private pilot with about 1,200 hours. Has led Community Aviation’s proficiency programs since 2014, including the EAA Pilot Proficiency Center at&nbsp;AirVenture.</p></div>
+<div class="person"><div class="ph" aria-hidden="true">RS</div><h3>Rich Stowell, Co-founder and Chief Learning Officer</h3><p>Full-time instructor since 1987 in spin, emergency maneuver and aerobatic training. 2006 National Flight Instructor of the Year. Author of the Learn-Do-Fly Training&nbsp;Standard.</p></div>
+<div class="person"><div class="ph" aria-hidden="true">TD</div><h3>Tim Delhaes, Co-founder, Product and Technology</h3><p>Serial tech entrepreneur and operator in SaaS. Leads system architecture and engineering, and runs product development day to&nbsp;day.</p></div>
+</div>
+<p>Also on the team: Leonardo Iker (product), Joe Hu and Egor Miliukov (engineering), Martyn van Hoek (sales), and part-time, Jason Archer (curriculum) and Gilberto Giménez (marketing).</p>
+</section>
+
+<section class="step" id="s6" data-title="Contact">
+<h2>Let’s talk</h2>
+<p class="lede">We work with hardware, software, insurance and training partners that put better-trained pilots in the&nbsp;cockpit.</p>
+<p class="addr">tim@communityaviation.com</p>
+</section>
+
+<footer>Community Aviation &nbsp; © 2026</footer>
+</main>
+
+<aside class="panelwrap" aria-label="Summary">
+<div class="panel" aria-live="off">
+<div class="pbody" id="pbody">
+<div class="caption" id="caption">Four sources of friction and fragmentation</div>
+<div class="stats one" id="stats">
+<div class="stat"><div class="v">Credentialism</div><div class="l">Training for the test, not for the transferable skills pilots need to adapt to new situations and manage risk</div></div>
+<div class="stat"><div class="v">Disintegration</div><div class="l">No seamless connection among knowledge acquisition, skill building and in-airplane training</div></div>
+<div class="stat"><div class="v">Inefficiency</div><div class="l">A predisposition for training in the airplane, when it should be where students apply what they’ve learned</div></div>
+<div class="stat"><div class="v">Regression</div><div class="l">Lost continuity between instructors and providers, a major factor in the dropout rate</div></div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+
+<script>
+(function(){
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var STATES=[
+{cap:'Four sources of friction and fragmentation',cls:'one',stats:[
+ ['Credentialism','Training for the test, not for the transferable skills pilots need to adapt to new situations and manage risk'],
+ ['Disintegration','No seamless connection among knowledge acquisition, skill building and in-airplane training'],
+ ['Inefficiency','A predisposition for training in the airplane, when it should be where students apply what they’ve learned'],
+ ['Regression','Lost continuity between instructors and providers, a major factor in the dropout rate']]},
+{cap:'Three products, one pilot record',three:[
+ ['Loops','Compounds each pilot’s record, so training grows more personal and the focus stays on improvement.'],
+ ['Flight Ops','Integrates scheduling, aircraft, simulators, maintenance and billing with a pilot’s training journey.'],
+ ['Go|NoGo','Brings weather, TFRs, NOTAMs and more into the training environment to preserve continuity.']]},
+{cap:'Hardware, insurance and training',cls:'one',stats:[
+ ['Varjo','Mixed reality headsets for the Do step of Learn-Do-Fly',1],
+ ['Avemco','Up to 10% off premiums for pilots who complete our training']]},
+{cap:'The need',cls:'single',stats:[['674,000','new airline pilots needed worldwide over the next 20 years, and every one starts with flight training']]},
+{cap:'Traction',stats:[
+ ['300+','people pledged to the Learn-Do-Fly Standard'],
+ ['64%','of pilots rated our method superior, against 28% for conventional instruction'],
+ ['8','AeroElite locations in the DC area going live in November'],
+ ['10%','up to, off premiums with Avemco for completing our training']]},
+{cap:'The people',stats:[
+ ['2014','Billy Winburn starts leading our proficiency programs'],
+ ['1987','Rich Stowell starts instructing full time']]},
+{cap:'Let’s talk',cls:'single',stats:[['Partners','Hardware, software, insurance and training']]}
+];
+var steps=[].slice.call(document.querySelectorAll('.step'));
+var rail=document.getElementById('rail');
+var home=document.createElement('li');home.className='home';
+home.innerHTML='<button type="button">Home</button>';
+rail.appendChild(home);
+var btns=[home.firstChild];
+steps.forEach(function(s,i){var li=document.createElement('li');var b=document.createElement('button');b.type='button';b.textContent=s.dataset.title;li.appendChild(b);rail.appendChild(li);btns.push(b);
+ b.addEventListener('click',function(){s.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});});});
+btns[0].addEventListener('click',function(){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});});
+
+var pbody=document.getElementById('pbody');
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function html(st){
+ var h='<div class="caption">'+esc(st.cap)+'</div>';
+ if(st.stats){h+='<div class="stats '+(st.cls||'')+'">'+st.stats.map(function(s){return '<div class="stat'+(s[2]?' hot':'')+'"><div class="v">'+esc(s[0])+'</div><div class="l">'+esc(s[1])+'</div></div>';}).join('')+'</div>';}
+ if(st.three){h+='<div class="three">'+st.three.map(function(s){return '<div><b>'+esc(s[0])+'</b><span>'+esc(s[1])+'</span></div>';}).join('')+'</div>';}
+ return h;
+}
+var cur=0,timer=null;
+function setState(i){
+ if(i===cur)return;cur=i;
+ clearTimeout(timer);
+ if(reduce){pbody.innerHTML=html(STATES[i]);return;}
+ pbody.classList.add('out');
+ timer=setTimeout(function(){pbody.innerHTML=html(STATES[i]);pbody.classList.remove('out');},200);
+}
+function setRail(n){btns.forEach(function(b,k){b.setAttribute('aria-current',k===n?'true':'false');});}
+var ticking=false;
+function update(){
+ ticking=false;
+ var mid=window.innerHeight/2,best=0,bd=1e9,inside=-1;
+ steps.forEach(function(s,i){var r=s.getBoundingClientRect();
+  if(r.top<=mid&&r.bottom>=mid)inside=i;
+  var d=Math.abs((r.top+r.bottom)/2-mid);if(d<bd){bd=d;best=i;}});
+ var idx=inside>=0?inside:best;
+ var first=steps[0].getBoundingClientRect();
+ var atHome=first.top>mid+window.innerHeight*0.15;
+ setRail(atHome?0:idx+1);
+ setState(atHome?0:idx);
+}
+function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(update);}}
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',onScroll);
+update();
+})();
+</script>
